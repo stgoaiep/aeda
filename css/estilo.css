@@ -264,7 +264,7 @@ footer p {
 
 .heroe h2 {
     font-weight: 900;
-    font-size: 3.4rem;
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
     line-height: 1;
     margin-bottom: 1rem;
 }
@@ -287,6 +287,12 @@ footer p {
     border-radius: 20px;    
     overflow: hidden;
 }
+@media (max-width: 768px) {    
+    .heroe .slide {
+    height: 20rem; 
+    }
+}
+
 .heroe .content {
     flex: 2 1 30rem;
 }
