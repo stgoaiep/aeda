@@ -1,0 +1,249 @@
+:root {
+    --color-primario: #1b8486;
+    --color-secundario: #32af79;
+    --color-text: rgb(17, 24, 17);
+    --color-text2: rgb(17, 24, 17, 0.6);
+    --color-bg: rgb(246, 248, 246);
+    --color-bg2: white;
+    --font-size: 14px;
+    --border-radius: 10px;
+}
+
+html {    
+    background-color: var(--color-bg);
+    font-family: "Manrope", sans-serif;    
+    font-size: var(--font-size);
+    color: var(--color-text);
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));*/ 
+    grid-template-columns: 1fr repeat(4, 1.5fr) 1fr;
+    grid-template-rows: minmax(65px, auto) auto minmax(390px, auto);
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+}
+
+.no-mostrar {display: none;}
+
+p {text-align: justify;}
+
+#header, #footer { 
+    grid-column: 1 / -1; /* full width */
+    background-color: var(--color-bg2);
+}
+
+#main { 
+    grid-column: 2 / -2;     
+}
+
+#header {
+    display: grid;
+    grid-template-columns: subgrid;
+}
+
+#header .container {
+    grid-column: 2 / -2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#menu-principal {    
+    display: flex;
+    flex-direction: row;    
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.5rem;
+    font-weight: 500;
+    font-size: 1rem;    
+    margin-bottom: 1rem;
+}
+
+a.btn-especial, a.cta {
+    background-color: var(--color-secundario);
+    color: white;
+    font-weight: 600;
+    border-radius: 10px;    
+    padding: 0.55rem 2rem;
+}
+
+a.btn-especial:hover {
+    color: var(--color-primario);
+    text-decoration: none;
+}
+
+a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: clamp(1.0rem, 1.1rem, 2rem);
+}
+
+a:hover {
+    color: var(--color-secundario);   
+    text-decoration: underline; 
+    font-weight: 700;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+}
+
+#logo img {
+    height: clamp(70px, 20vh, 100px);
+}
+
+/* Tarjetas */ 
+article h3 span {
+    font-family: 'Material Symbols Outlined';
+    font-size: 2rem;
+    padding-right: 0.3rem;
+    vertical-align: baseline;
+    color: var(--color-secundario);
+}
+
+section.como-ayudar {
+    display: flex;
+    flex-wrap: wrap;    
+    gap: 2rem;
+    margin-bottom: 6rem;
+}
+section.como-ayudar div {
+    flex: 0 0 100%;
+}
+section.como-ayudar div h2 {
+    font-size: 2.2rem;
+    margin-top: 3rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+}
+section.como-ayudar div p {
+    font-size: 1.2rem;
+    color: var(--color-text2);
+}
+section.como-ayudar article {
+    display: flex;
+    flex-direction: column;            
+    width: clamp(23rem, 23rem, 40rem);
+    overflow: hidden;
+    background-color: var(--color-bg2);
+    padding: 2.5rem 1.8rem;
+    border-radius: var(--border-radius);    
+}
+article a.cta {
+    display: block;
+    margin: 1rem 0;
+    flex-grow: 0;
+    text-align: center;
+}
+article a.cta:hover {
+    color: var(--color-primario)
+}
+article figure {
+    margin: 0;           
+    width: 100%;
+    aspect-ratio: 4/3;  
+    overflow: hidden;
+    border-radius: 8px;
+}
+article figure img {
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   /* recorta sin deformar */
+    display: block;
+}
+article h3 {
+    font-weight: 700;
+    font-size: 1.5rem;    
+}
+article p {    
+    flex-grow: 3;
+    text-align: justify;
+    color: var(--color-text2);
+    font-size: clamp(1.0rem, 1.1rem, 2.0rem);   
+}
+
+/* FOOTER */
+footer {
+    background-color: white;            
+    display: grid;
+    grid-template-columns: subgrid;    
+    grid-template-rows: 1fr 60px;
+}
+
+#footer-row-1, #footer-row-2 {
+    grid-column: 2 / -2;    
+}
+
+footer a {    
+    text-decoration: none;
+    color: var(--color-text2);
+}
+footer a:hover {    
+    text-decoration: underline;    
+}
+
+footer h3 {
+    font-size: 1.15rem;
+    line-height: 1.75rem;
+    font-weight: 700;
+}
+
+footer a span {
+    font-family: 'Material Symbols Outlined';
+    font-size: 0.85rem;
+    padding-right: 0.3rem;
+    vertical-align: middle;
+}
+
+#footer-row-1 {
+    padding-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+#footer-row-2 {
+    border-top: 1px solid #ccc;
+    padding-top: 2rem;
+    margin-top: 2rem;
+}
+
+#footer-row-1 section:first-child {
+    max-width: 40rem;
+}
+
+#footer-row-1 section:first-child img {
+    height: 50px;    
+    float: left;
+    margin-right: 1rem;
+}
+
+#footer-row-1 nav {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+}
+
+footer a svg {
+    height: 1rem;
+}
+
+footer p {
+    line-height: 1.65rem;
+    color: var(--color-text2);
+}
